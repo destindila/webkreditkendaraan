@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+<body>
+	<h2 style="color:navy; text-align:center;"> Kalkulator penghitungan kredit</h2>
+<div ng-app="kalkulator" data-ng-controller="kalkulatorController">
+
+	<table  align="center" class="table table-bordered" style="width:500px; height:500px; ">
+<thead>
+ 
+</thead>
+<tbody>
+	<tr>
+	 <tr>
+    <td colspan="2"><h3 style="text-align:center;">Masukkan data</h3></td>
+  
+	</tr>
+	<tr>
+	<td>
+	Masukkan harga kendaraan </td> <td> : <input type="number" ng-model="angka1" />
+	</td>
+	</tr>
+	<tr>
+	<td>
+	Masukkan uang muka yang dibayarkan </td> <td> : <input type="number" ng-model="angka2" />
+	</td>
+	</tr>
+	<tr>
+	<td>
+	Masukkan berapa kali cicilan </td> <td> : <input type="number" ng-model="angka3" />
+	</td>
+	</tr>
+	<tr>
+	<td>
+	<p>Kalkulator 
+	</td> <td> : {{angka1}} - {{angka2}} / {{angka3}} * {{bunga}} = {{(angka1 - angka2)/angka3*bunga}}
+	</td>
+	</tr>
+	<tr>
+	<td>
+	Harga kendaraan </td> <td> : {{ angka1 | currency : "Rp." : 2}}</td>
+	</tr>
+	<tr>
+	<td>
+	Uang muka </td> <td> : {{ angka2 | currency : "Rp." : 2}}</td>
+	</tr>
+	<tr>
+	<td>
+	Jumlah pinjaman </td> <td> : {{ (angka1 - angka2) | currency : "Rp." : 2}}</td>
+	</tr>
+	<tr>
+	<td>
+	Cicilan </td> <td> : {{ angka3 }} kali</td>
+	</tr>
+	<tr>
+	<td>
+	Angsuran yang akan dibayar tiap bulan </td> <td> : {{ (angka1 - angka2)/angka3*bunga | currency : "Rp." : 2}}</td>
+	</tr>
+</tbody>
+</table>
+
+</div>
+
+<script>
+var app = angular.module('kalkulator', []);
+app.controller('kalkulatorController', function($scope) {
+    $scope.angka1 = 0;
+	$scope.angka2 = 0;
+	$scope.angka3 = 0;
+	$scope.bunga = 1.05;
+    
+});
+</script>
+
+</body>
+</html>
